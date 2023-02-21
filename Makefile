@@ -14,11 +14,11 @@ OPTIMIZE = 	-O3
 WARN = 		-Wall -Wextra -pedantic
 CDEFS +=	-D_POSIX_C_SOURCE=199309L -D_C99_SOURCE
 CINCS += 	-I${INC} -I${VENDOR} -I${BUILD}
-CFLAGS += 	-std=c99 -g ${WARN} ${CDEFS} ${OPTIMIZE} ${CINCS}
+CFLAGS += 	-std=c99 -g ${WARN} ${CDEFS} ${OPTIMIZE} ${CINCS} -m32
 CFLAGS +=	-fPIC
 
 # Note: -lm is only needed if using built-in floating point generators
-LDFLAGS +=	-lm
+LDFLAGS +=	-lm -m32
 
 all: ${BUILD}/lib${PROJECT}.a
 all: ${BUILD}/test_${PROJECT}
